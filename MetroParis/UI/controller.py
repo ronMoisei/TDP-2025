@@ -53,6 +53,7 @@ class Controller:
 
     def read_DD_Partenza(self, e):
         print("Reading DD Partenza")
+        print(e.control.data)
         if e.control.data is None:
             self._fermataPartenza = None
         else:

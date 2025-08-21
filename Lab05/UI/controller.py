@@ -17,7 +17,7 @@ class Controller:
             for d in self._model.getCorsobyPD(self._pd):
                 self._view.ddCorso.options.append(
                     ft.dropdown.Option(key=f"{d.codins} - {d.nome}: {d.pd} periodo - {d.crediti} CFU",
-                    data=d,)
+                    data=d)
                 )
         else:
             for d in self._model.getAllCorsi():
@@ -34,6 +34,7 @@ class Controller:
 
         # e.control è il Dropdown, non l'Option
         selected_key = e.control.value
+        print(f"selected_key: {e.control}")
         # recupera l'Option corrispondente per avere il .data
         for opt in self._view.ddCorso.options:
             if opt.key == selected_key:
@@ -41,11 +42,9 @@ class Controller:
                 break
         #self._view.txtIn.disabled = False
         self._view.update()
-        print(self._corso)
-        print("Hai scelto l'oggetto Dictionary:", selected_key)
+
 
     def setPeriodo(self, e):
-        self._view.ddCorso.value = "Selezionare un corso"
         self._view.update()
         print(f"Dropdown corso: {self._view.ddCorso}")
         selected_key = e.control.value
